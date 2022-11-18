@@ -1,9 +1,7 @@
 <h1><%= @list.name %></h1>
 
-<% if @list.photos.attached? %>
-  <% @list.photos.each do |photo| %>
-    <%= cl_image_tag photo.key, alt: "no pix", width: 200 %>
-  <% end %>
+<% if @list.photo.attached? %>
+  <%= cl_image_tag @list.photo.key, alt: "no pic", width: 200 %>
 <% end %>
 
 <%= link_to 'New bookmark form', new_list_bookmark_path(@list) %>

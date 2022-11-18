@@ -1,7 +1,12 @@
 <h1> All lists </h1>
 
-<ul>
-  <% @lists.each do |list| %>
-    <li><%= link_to list.name, list_path(list) %></li>
-  <% end %>
-</ul>
+<div class="card-list">
+  <ul>
+    <% @lists.each do |list| %>
+      <li><%= link_to list.name, list_path(list) %></li>
+      <% if list.photo.attached? %>
+        <%= cl_image_tag list.photo.key, alt: "no pic", width: 200, crop: :fill %>
+      <% end %>
+    <% end %>
+  </ul>
+</div>
